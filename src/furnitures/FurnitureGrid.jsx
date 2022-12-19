@@ -1,30 +1,29 @@
-import { Pagination } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
+import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { useDispatch, useSelector } from "react-redux";
+import { GeneralPagination } from "../common/pagination/GeneralPagination";
+import { getFurnitures } from "../store/furniture/thunks";
+import { FurnitureCard } from "./FurnitureCard";
 
 export const FurnitureGrid = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFurnitures());
+  }, []);
+
+  const { furnitures } = useSelector((state) => state.furnitures);
   return (
     <>
       <Container className="mb-5">
         <Row xs={1} md={2} lg={4}>
-          {Array.from({ length: 15 }).map((_, idx) => (
-            <Col>
-              <Card>
-                <Card.Img variant="top" src="src/assets/test.jpeg" />
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>
-                    This is a longer card with supporting text below as a natural lead-in to additional content. This
-                    content is a little bit longer.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+          {furnitures.map((furniture, id) => (
+            <FurnitureCard furniture={furniture} key={id} />
           ))}
         </Row>
       </Container>
+      <GeneralPagination items={1} />
     </>
   );
 };
