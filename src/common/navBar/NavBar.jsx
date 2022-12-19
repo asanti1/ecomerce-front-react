@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -9,25 +9,7 @@ import { AuthHandler } from "../../auth/AuthHandler";
 import { UserDropdown } from "./UserDropdown";
 
 export const NavBar = () => {
-  const { status, user } = useSelector((state) => state.auth);
-
-  const [loginModal, setLoginModal] = useState(false);
-
-  const toggleLoginModal = () => {
-    setLoginModal((loginModal) => !loginModal);
-    buttonToggle();
-  };
-
-  const [registerModal, setRegisterModal] = useState(true);
-
-  const [buttonOrNot, setButtonOrNot] = useState(false);
-
-  const buttonToggle = () => setButtonOrNot((buttonOrNot) => !buttonOrNot);
-
-  const toggleRegisterModal = () => {
-    toggleLoginModal();
-    setRegisterModal((registerModal) => !registerModal);
-  };
+  const { status } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -55,24 +37,7 @@ export const NavBar = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-
-        {status == "authenticated" ? (
-          <UserDropdown />
-        ) : buttonOrNot ? (
-          <AuthHandler
-            loginModal={loginModal}
-            toggleLoginModal={toggleLoginModal}
-            registerModal={registerModal}
-            toggleRegisterModal={toggleRegisterModal}
-          />
-        ) : (
-          <Button
-            className="d-flex justify-content-end mx-3"
-            onClick={toggleLoginModal}
-          >
-            Login
-          </Button>
-        )}
+        {status == "authenticated" ? <UserDropdown /> : <AuthHandler />}
       </Navbar>
     </>
   );

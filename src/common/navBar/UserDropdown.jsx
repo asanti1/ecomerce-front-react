@@ -1,5 +1,6 @@
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { useAuthStore } from "../../hooks/useAuthStore";
 
 export const UserDropdown = () => {
@@ -7,9 +8,11 @@ export const UserDropdown = () => {
 
   const { startLogout } = useAuthStore();
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     startLogout();
-    window.location.reload();
+    navigate("/");
   };
 
   return (
