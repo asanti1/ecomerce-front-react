@@ -29,6 +29,7 @@ export const useAuthStore = () => {
           email: user.email,
           address: user.address,
           roles: user.roles,
+          id: user.id,
         })
       );
     } catch (error) {
@@ -78,21 +79,6 @@ export const useAuthStore = () => {
     }
   };
 
-  const checkAuthToken = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) return dispatch(onLogout());
-
-    try {
-      const { data } = await mobilierApi.get("auth/renew");
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("token-init-date", new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid }));
-    } catch (error) {
-      localStorage.clear();
-      dispatch(onLogout());
-    }
-  };
-
   const startLogout = () => {
     localStorage.clear();
     dispatch(onLogout());
@@ -102,7 +88,6 @@ export const useAuthStore = () => {
     errorMessage,
     status,
     user,
-    checkAuthToken,
     startLogin,
     startLogout,
     startRegister,

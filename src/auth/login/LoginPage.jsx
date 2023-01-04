@@ -1,6 +1,5 @@
 import { Button, Col, Form, Modal, Row } from "react-bootstrap/";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
 import { useAuthStore } from "../../hooks/useAuthStore";
 
 export const LoginPage = ({
@@ -10,18 +9,16 @@ export const LoginPage = ({
 }) => {
   const { handleSubmit, register } = useForm();
   const { startLogin } = useAuthStore();
-  const navigate = useNavigate();
 
   const onSubmit = (data, event) => {
     event.preventDefault();
     startLogin(data);
-    navigate("/login");
   };
 
   return (
     <Modal show={loginModal} onHide={handleHide} centered>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group className="ms-2 me-2 mt-3" controlId="email">
+      <Form onSubmit={handleSubmit(onSubmit)} className="login-modal">
+        <Form.Group className="login-modal-field" controlId="email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -30,8 +27,7 @@ export const LoginPage = ({
             {...register("email")}
           />
         </Form.Group>
-
-        <Form.Group className="mb-3 ms-2 me-2" controlId="password">
+        <Form.Group className="login-modal-field" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"

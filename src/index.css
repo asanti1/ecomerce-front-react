@@ -2,3 +2,99 @@
   color-scheme: #171614, #63a375 #d36135, #6c91c2, #ffd639;
 }
  */
+
+body {
+  background-color: #25282c;
+}
+.nav {
+  background-color: #171614;
+}
+
+.white-text {
+  color: white;
+}
+
+.btn-outline-success.nav-search-button {
+  margin-right: 100px;
+  background-color: #ffd639;
+  color: #171614;
+}
+
+button.nav-search-button:hover {
+  background-color: #63a375;
+  color: white;
+}
+
+.card {
+  color: #ffffff;
+  background-color: #535661;
+  font-weight: 300;
+}
+
+.card-text {
+  height: 10vh;
+  font-weight: 450;
+  color: #f6f6f6;
+}
+
+.card-footer {
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #747893;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.page-link {
+  background-color: #ffd639;
+  color: #171614;
+  border-color: #171614;
+  border-radius: 5px;
+}
+
+a.page-link:hover {
+  background-color: #63a375;
+  color: white;
+}
+
+.login-modal {
+  background-color: #ffd639;
+  border-radius: 10px;
+  border: #ffd639;
+}
+
+.login-modal-field {
+  margin: 10px;
+}
+
+.register-modal {
+  background-color: #ffd639;
+  border-radius: 10px;
+  border: #ffd639;
+}
+
+.register-modal-field {
+  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.user-dropdown-button-toggler {
+  margin-right: 100px;
+}
+
+.user-dropdown {
+  background-color: #ffd639;
+  color: #171614;
+}
+
+.user-profile-text {
+  color: white;
+}
+
+.vertical-line {
+  border-left: 3px solid white;
+  position: relative;
+  height: 500px;
+  margin-left: -3px;
+}

@@ -23,9 +23,9 @@ export const RegisterPage = ({
 
   return (
     <Modal show={registerModal} onHide={handleHide} centered>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)} className="register-modal">
         <Row>
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="firstName">
+          <Form.Group as={Col} className="register-modal-field" controlId="firstName">
             <Form.Label as="strong">First Name (*)</Form.Label>
             <Form.Control
               type="text"
@@ -35,7 +35,7 @@ export const RegisterPage = ({
             />
           </Form.Group>
 
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="lastName">
+          <Form.Group as={Col} className="register-modal-field" controlId="lastName">
             <Form.Label as="strong">Last Name (*)</Form.Label>
             <Form.Control
               type="text"
@@ -47,7 +47,7 @@ export const RegisterPage = ({
         </Row>
 
         <Row>
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="phone">
+          <Form.Group as={Col} className="register-modal-field" controlId="phone">
             <Form.Label>Your Phone (Optional)</Form.Label>
             <Form.Control
               type="text"
@@ -56,7 +56,7 @@ export const RegisterPage = ({
             />
           </Form.Group>
 
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="email">
+          <Form.Group as={Col} className="register-modal-field" controlId="email">
             <Form.Label as="strong">Your email (*)</Form.Label>
             <Form.Control
               type="email"
@@ -68,7 +68,7 @@ export const RegisterPage = ({
         </Row>
 
         <Row>
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="password">
+          <Form.Group as={Col} className="register-modal-field" controlId="password">
             <Form.Label as="strong">Password (*)</Form.Label>
             <Form.Control
               type="password"
@@ -78,7 +78,7 @@ export const RegisterPage = ({
             />
           </Form.Group>
 
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="password">
+          <Form.Group as={Col} className="register-modal-field" controlId="password">
             <Form.Label as="strong">Confirm Password (*)</Form.Label>
             <Form.Control
               type="password"
@@ -95,7 +95,7 @@ export const RegisterPage = ({
         </h6>
 
         <Row>
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="country">
+          <Form.Group as={Col} className="register-modal-field" controlId="country">
             <Form.Label>Country </Form.Label>
             <Form.Select as={Col} {...register("country")}>
               <option value="Argentina">Argentina</option>
@@ -104,7 +104,7 @@ export const RegisterPage = ({
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="state">
+          <Form.Group as={Col} className="register-modal-field" controlId="state">
             <Form.Label>State </Form.Label>
             <Form.Control
               type="text"
@@ -115,7 +115,7 @@ export const RegisterPage = ({
         </Row>
 
         <Row className="mb-3">
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="city">
+          <Form.Group as={Col} className="register-modal-field" controlId="city">
             <Form.Label>City </Form.Label>
             <Form.Control
               type="text"
@@ -124,7 +124,7 @@ export const RegisterPage = ({
             />
           </Form.Group>
 
-          <Form.Group as={Col} className="ms-2 me-2 mt-3" controlId="street">
+          <Form.Group as={Col} className="register-modal-field" controlId="street">
             <Form.Label>Street </Form.Label>
             <Form.Control
               type="text"
@@ -135,7 +135,7 @@ export const RegisterPage = ({
 
           <Form.Group
             as={Col}
-            className="ms-2 me-2 mt-3"
+            className="register-modal-field"
             controlId="roomNumber"
           >
             <Form.Label>Room Number </Form.Label>

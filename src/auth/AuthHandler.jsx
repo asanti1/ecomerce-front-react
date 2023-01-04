@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { LoginPage } from "./login/LoginPage";
 import { RegisterPage } from "./register/RegisterPage";
@@ -38,7 +38,7 @@ export const AuthHandler = () => {
         <div></div>
       ) : (
         <Button
-          className="d-flex justify-content-end mx-3"
+          className="d-flex justify-content-end btn btn-outline-success nav-search-button"
           onClick={openModalFirstTimeHandler}
         >
           Login

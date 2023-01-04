@@ -1,25 +1,34 @@
-
-import Button from "react-bootstrap/Button";
+import { memo } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { AuthHandler } from "../../auth/AuthHandler";
-import { UserDropdown } from "./UserDropdown";
+import "../../index.css";
+import { UserDropdown } from "../../user/UserDropdown";
 
-export const NavBar = () => {
+export const NavBar = memo(() => {
   const { status } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
 
   return (
     <>
       <Navbar
         expand="lg"
         sticky="top"
-        className="navbar navbar-dark bg-dark mx-auto mb-5"
+        className="nav navbar navbar-dark mx-auto"
       >
         <Container fluid>
-          <Navbar.Brand href="#">Mobilier</Navbar.Brand>
+          <Navbar.Brand
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Mobilier
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="mx-auto d-flex flex-row mb-3 mt-3" navbarScroll>
@@ -30,9 +39,12 @@ export const NavBar = () => {
                   className="p-2"
                   aria-label="Search"
                 />
-                <Button variant="outline-success" className="">
+                <button
+                  type="button"
+                  className="btn btn-outline-success nav-search-button"
+                >
                   Search
-                </Button>
+                </button>
               </Form>
             </Nav>
           </Navbar.Collapse>
@@ -41,4 +53,4 @@ export const NavBar = () => {
       </Navbar>
     </>
   );
-};
+});
